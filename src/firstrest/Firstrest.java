@@ -14,12 +14,12 @@ public class Firstrest {
         Server server = new Server(Protocol.HTTP, 8182, new Restlet() {
             @Override
             public void handle(Request request, Response response) {
-                response.setEntity("hello, world", MediaType.TEXT_PLAIN);
+                response.setEntity("hello, world2", MediaType.APPLICATION_JSON);
             }
         });
         server.start();
-        new ClientResource("http://localhost:8182").get().
+        new ClientResource("http://localhost:8182/ab").get().
                 write(System.out);
-//        server.stop();
+        server.stop();
     }
 }
